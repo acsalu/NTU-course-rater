@@ -1,0 +1,17 @@
+{
+  "name": "NTU Course Rater",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Helps you fill out the forms efficiently.",
+  "content_scripts": [
+  	{
+  		"matches": ["https://ceiba.ntu.edu.tw/course/*", "file:///*", "https://investea.aca.ntu.edu.tw/opinion/giveform3.asp", "https://investea.aca.ntu.edu.tw/opinion/mchooes.asp"],
+  		"js": ["jquery-1.8.3.min.js", "jquery-ui.js", "alert.js"],
+  		"css": ["style.css"],	
+  		"run_at": "document_end"
+  	}
+  ],
+  "permissions": [
+    "tabs", "https://ceiba.ntu.edu.tw/course/*", "http://ajax.googleapis.com/", "https://investea.aca.ntu.edu.tw/opinion/choose2.ASP"
+  ]
+}

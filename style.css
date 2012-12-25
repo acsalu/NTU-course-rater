@@ -1,0 +1,8 @@
+#ctrl_div {
+	padding: 20px 20px 20px 20px;
+	margin: auto;
+	background-color: white;
+	border-radius: 5px;
+	width: 70%;
+	-webkit-box-shadow: 5px 5px 5px #BBBBBB;
+}
