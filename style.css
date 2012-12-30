@@ -1,8 +1,79 @@
-#ctrl_div {
-	padding: 20px 20px 20px 20px;
-	margin: auto;
+#ctrl {
 	background-color: white;
+	margin: auto;
+	margin-top: -30px;
+	padding: 35px 5px 15px 5px;
+	border-radius: 10px;
+	-webkit-box-shadow: 3px 3px 6px 6px #999999;
+}
+
+#info {
+	display: none;
+	border: 1px solid black;
+}
+
+td > div {
+	border-radius: 3px;
+	width: 80px;
+	height: 25px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.overall { background-color: #ffcf0d; }
+.overall:hover { background-color: #ffeda4; }
+		
+.style { background-color: #00b2b2; }
+.style:hover { background-color: #11e1e1; }
+
+.loading { background-color: #ba0eef; }
+.loading:hover { background-color: #cb1dff; }
+
+.difficulty { background-color: #ef4f4f; }
+.difficulty:hover { background-color: #ff6969; }
+
+.title {
+	height: 10px;
+}
+
+.hideextra { 
+	white-space: nowrap; 
+	overflow: hidden; 
+	text-overflow:ellipsis; 
+}
+	
+#opinion {
 	border-radius: 5px;
-	width: 70%;
-	-webkit-box-shadow: 5px 5px 5px #BBBBBB;
+	border: 1px solid black;
+	margin: 10px 20px 20px 10px;
+	width: 350px;
+}
+
+#result {
+	width: 450px;
+}
+	
+.footer {
+	position: absolute;
+	margin-top: 190px;
+}	
+	
+	
+#submit {
+	margin-left:920px;
+}
+
+	
+#expand_collapse {
+	border-radius: 100%;
+	border: 2px black solid;
+	width:30px;
+	height: 30px;
+	text-align: center;
+	vertical-align: middle;
+	display: table-cell;
+	font-size:1.2em;
+	float:right;
+	margin-left: 970px;
 }

@@ -1,0 +1,103 @@
+<link type="text/css" rel="stylesheet" href="style.css"/>
+<div id="ctrl" style="width: 80%;font-family:Helvetica;border:2px solid;">
+	<table id="info">
+		<thead>
+			<tr><th colspan="2">NTU course rater</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>Student</td><td>B98901147</td></tr>
+			<tr><td>Course</td><td>202 10300</td></tr>
+			<tr><td>Class</td><td>00</td></tr>
+			<tr><td>Instructor</td><td>孫維新</td></tr>
+		</tbody>
+	</table>
+	<div id="rate">
+		<div>
+			是否提供課程大綱？
+			<input type=radio name="syllabus" value="1">是
+			<input type=radio name="syllabus" value="2">否
+		</div>
+		<div>
+			課後活動
+			<input type=checkbox name="activity1">閱讀資料
+			<input type=checkbox name="activity2">閱讀心得報告
+			<input type=checkbox name="activity3">習題
+			<input type=checkbox name="activity4">書面報告
+			<input type=checkbox name="activity5">口頭報告
+			<input type=checkbox name="activity6">專案研究
+			<input type=checkbox name="activity7">作品或展演
+			<input type=checkbox name="activity8">隨堂測驗
+			<input type=checkbox name="activity9">其他
+		</div>
+		<div>
+			<div>
+				<span class="teacher">孫維新</span>老師
+				<select name="teachinging_rate">
+					<option value="5" selected="">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>
+				</select>分
+			</div>
+		</div>
+		<div>
+			學習成果
+			<select name="learning_rate">
+					<option value="5" selected="">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>
+			</select>分
+		</div>
+	</div>
+	<table style="width:800px">
+	<tr><td>
+	<table class="hideextra" id="opinion">
+		<thead>
+		<tr>
+			<th><div class="title">總評</div></th>
+			<th><div class="title">風格</div></th>
+			<th><div class="title">負擔</div></th>
+			<th><div class="title">難度</div></th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td><div class="overall" id="1">好課</div></td>
+			<td><div class="style" id="1">大師風範</div></td>
+			<td><div class="loading" id="1">非常涼</div></td>
+			<td><div class="difficulty" id="1">非常簡單</div></td>
+		</tr>
+		<tr>
+			<td><div class="overall" id="2">操課</div></td>
+			<td><div class="style" id="2">幽默風趣</div></td>
+			<td><div class="loading" id="2">有點涼</div></td>
+			<td><div class="difficulty" id="2">有點簡單</div></td>
+		</tr>
+		<tr>
+			<td><div class="overall" id="3">紮實</div></td>
+			<td><div class="style" id="3">深入淺出</div></td>
+			<td><div class="loading" id="3">負擔適中</div></td>
+			<td><div class="difficulty" id="3">難度適中</div></td>
+		</tr>
+		<tr>
+			<td><div class="overall" id="4">很崩潰</div></td>
+			<td><div class="style" id="4">聽不太懂</div></td>
+			<td><div class="loading" id="4">有點重</div></td>
+			<td><div class="difficulty" id="4">有點困難</div></td>
+		</tr>
+		<tr>
+			<td><div class="overall" id="5">有趣</div></td>
+			<td><div class="style" id="5">觀點精闢</div></td>
+			<td><div class="loading" id="5">非常重</div></td>
+			<td><div class="difficulty" id="5">非常困難</div></td>
+		</tr>
+		</tbody>
+	</table>
+	</td>
+	<td><div class="hideextra" id="result">「我覺得這是一門好課，老師上課很有大師風範，但有點聽不太懂而且有點重。」</div></td></tr>
+	<button class="footer" id="submit">送出</button>
+	<div class="footer" id="expand_collapse">⋀</div>
+</div>
