@@ -105,6 +105,7 @@ var bindHomework = function() {
 
 var bindRate = function(type) {
 	if (type == "SINGLE") {
+		// bind overall teaching rates (input[type="radio"][name="ans(6~11)"])
 		$('select[name="teaching_rate"]').change(function(e) {
 			console.log("teaching rate has changed");
 			for (var i = 6; i < 6 + 11; ++i) {
@@ -112,6 +113,7 @@ var bindRate = function(type) {
 			}
 		});
 		
+		// bind learning rates (input[type="radio"][name="ans(24~28)"])
 		$('select[name="learning_rate"]').change(function(e) {
 			console.log("learning rate has changed");
 			for (var i = 24; i < 24 + 5; ++i) {
@@ -120,6 +122,8 @@ var bindRate = function(type) {
 		});
 		
 	} else if (type == "MULTI") {
+	
+		// bind overall teaching rates (input[type="radio"][name="ans(6~11)"])
 		$('select[name="overall_teaching_rate"]').change(function(e) {
 			console.log("teaching rate has changed");
 			for (var i = 6; i < 6 + 6; ++i) {
@@ -127,6 +131,7 @@ var bindRate = function(type) {
 			}
 		});
 
+		// bind teaching rates for each teacher (input[type="radio"][name="ANS(12~17)m(1~n)]) ... n teachers
 		$('#teacherList').find('[id^="teacher"]').each(function(index) {
 			$(this).find('select').change(function(e) {
 				console.log("teaching rate for teacher" + index + " has changed");
@@ -140,7 +145,7 @@ var bindRate = function(type) {
 			});
 		});
 		
-		
+		// bind learning rates (input[type="radio"][name="ans(24~28)"])
 		$('select[name="learning_rate"]').change(function(e) {
 			console.log("learning rate has changed");
 			for (var i = 24; i < 24 + 5; ++i) {
