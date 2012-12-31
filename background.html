@@ -1,9 +1,11 @@
+<script>
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
     if(request.cmd == "read_file") {
         $.ajax({
-            url: chrome.extension.getURL("topbar.html"),
+            url: chrome.extension.getURL("template.html"),
             dataType: "html",
             success: sendResponse
         });
     }
 })
+</script>	

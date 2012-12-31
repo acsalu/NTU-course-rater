@@ -1,14 +1,14 @@
-<link type="text/css" rel="stylesheet" href="style.css"/>
+
 <div id="ctrl" style="width: 80%;font-family:Helvetica;border:2px solid;">
 	<table id="info">
 		<thead>
 			<tr><th colspan="2">NTU course rater</th></tr>
 		</thead>
 		<tbody>
-			<tr><td>Student</td><td>B98901147</td></tr>
-			<tr><td>Course</td><td>202 10300</td></tr>
-			<tr><td>Class</td><td>00</td></tr>
-			<tr><td>Instructor</td><td>孫維新</td></tr>
+			<tr><td>Student</td><td id="student_id">B98901147</td></tr>
+			<tr><td>Course</td><td id="course_num">202 10300</td></tr>
+			<tr><td>Class</td><td id="class_num">00</td></tr>
+			<tr><td>Instructor</td><td id="instructor">孫維新</td></tr>
 		</tbody>
 	</table>
 	<div id="rate">
@@ -29,10 +29,10 @@
 			<input type=checkbox name="activity8">隨堂測驗
 			<input type=checkbox name="activity9">其他
 		</div>
-		<div>
-			<div>
-				<span class="teacher">孫維新</span>老師
-				<select name="teachinging_rate">
+		<div id="teacherList">
+			<div id="teacher1">
+				<span class="teacher_name">孫維新</span>老師
+				<select name="teaching_rate">
 					<option value="5" selected="">5</option>
 					<option value="4">4</option>
 					<option value="3">3</option>
@@ -90,7 +90,7 @@
 		</tr>
 		<tr>
 			<td><div class="overall" id="5">有趣</div></td>
-			<td><div class="style" id="5">觀點精闢</div></td>
+			<td><div class="style" id="5">有點沈悶</div></td>
 			<td><div class="loading" id="5">非常重</div></td>
 			<td><div class="difficulty" id="5">非常困難</div></td>
 		</tr>
@@ -98,6 +98,6 @@
 	</table>
 	</td>
 	<td><div class="hideextra" id="result">「我覺得這是一門好課，老師上課很有大師風範，但有點聽不太懂而且有點重。」</div></td></tr>
-	<button class="footer" id="submit">送出</button>
+	<button class="footer" id="my_submit">送出</button>
 	<div class="footer" id="expand_collapse">⋀</div>
 </div>
