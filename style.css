@@ -28,15 +28,23 @@ td > div {
 
 .overall { background-color: #ffcf0d; }
 .overall:hover { background-color: #ffeda4; }
+.overall_pressed { background-color: #c9a40c; border: 1px solid black; -webkit-box-shadow: 1px 1px 1px 1px #999999;}
+.overall_pressed:hover { background-color:#bbb7a8; }
 		
-.style { background-color: #00b2b2; }
-.style:hover { background-color: #11e1e1; }
+.style { background-color: #03dada; }
+.style:hover { background-color: #7fcaca; }
+.style_pressed { background-color: #03afaf; border: 1px solid black; -webkit-box-shadow: 1px 1px 1px 1px #999999;}
+.style_pressed:hover { background-color:#347878; }
 
 .loading { background-color: #ba0eef; }
 .loading:hover { background-color: #cb1dff; }
+.loading_pressed { background-color: #740c93; border: 1px solid black; -webkit-box-shadow: 1px 1px 1px 1px #999999;}
+.loading_pressed:hover { background-color:#7b5089; }
 
 .difficulty { background-color: #ef4f4f; }
 .difficulty:hover { background-color: #ff6969; }
+.difficulty_pressed { background-color: #7e1414; border: 1px solid black; -webkit-box-shadow: 1px 1px 1px 1px #999999;}
+.difficulty_pressed:hover { background-color:#7b4d4d; }
 
 .title {
 	height: 10px;
@@ -59,10 +67,6 @@ td > div {
 	width: 450px;
 }
 	
-.footer {
-	position: absolute;
-	margin-top: 190px;
-}	
 	
 	
 #my_submit {
@@ -76,8 +80,6 @@ td > div {
 	height: 30px;
 	text-align: center;
 	vertical-align: middle;
-	display: table-cell;
 	font-size:1.2em;
-	float:right;
 	margin-left: 970px;
 }

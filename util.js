@@ -2,6 +2,19 @@ SINGLE_URL = "https://investea.aca.ntu.edu.tw/opinion/giveform3.asp";
 MULTI_URL =  "https://investea.aca.ntu.edu.tw/opinion/mchooes.asp";
 TA_URL = "http://140.112.161.20/svta/A_TA.aspx";
 
+
+
+var Set = function() {}
+Set.prototype.add = function(o) { this[o] = true; }
+Set.prototype.remove = function(o) { delete this[o]; }
+
+opn_overall = [false, false, false, false, false];
+opn_style = [false, false, false, false, false];
+opn_loading = null;
+opn_difficulty = null;
+
+
+
 String.prototype.trim = function() {
     return this.replace(/(^[\s]*)|([\s]*$)/g, "");
 }
@@ -157,5 +170,47 @@ var bindRate = function(type) {
 		return;
 	}
 }
+
+var bindOpinion = function() {
+	$('#opinion').find(".overall").each(function(i) {
+		$(this).click(function() {
+			opn_overall[i] = !opn_overall[i];
+			$(this).toggleClass('overall').toggleClass('overall_pressed');
+		});
+	});
+	
+	$('#opinion').find(".style").each(function(i) {
+		$(this).click(function() {
+			opn_style[i] = !opn_style[i];
+			$(this).toggleClass('style').toggleClass('style_pressed');
+		});
+	});
+	
+	$('#opinion').find("[class^=loading]").each(function(i) {
+		$(this).click(function() {
+			if (opn_loading != i + 1) {
+				origin = opn_loading;
+				opn_loading = i + 1;
+				$('#opinion').find("[class^=loading]").each(function(j) {
+					if (j == origin - 1 || j == opn_loading - 1) $(this).toggleClass('loading').toggleClass('loading_pressed');
+				});
+			}
+		});
+	});
+	
+	$('#opinion').find("[class^=difficulty]").each(function(i) {
+		$(this).click(function() {
+			if (opn_difficulty != i + 1) {
+				origin = opn_difficulty;
+				opn_difficulty = i + 1;
+				$('#opinion').find("[class^=difficulty]").each(function(j) {
+					if (j == origin - 1 || j == opn_difficulty - 1) $(this).toggleClass('difficulty').toggleClass('difficulty_pressed');
+				});
+			}
+		});
+	});
+}
+
+
 
 
