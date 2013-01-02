@@ -79,7 +79,7 @@ var fillTeacherList = function() {
 					   '<option value="2">2</option>' +
 					   '<option value="1">1</option>' +
 					   '</select>分'+ 
-					   ((teachers.length > 1) ? ('<input type="text" name="teacher' + (i + 1) + '"/ >') : '') + 
+					   ((teachers.length > 1) ? ('<input type="text" name="teacher' + (i + 1) + '" value="好！"/ >') : '') + 
 					   '</div>';
 	}
 	if (teachers.length > 1) {
@@ -308,6 +308,7 @@ var setDefaultValues = function() {
 	$('input[name="ans4"][value="2"]').prop('checked', true);
 	$('input[name^="ANS"][value="5"]').prop('checked', true);
 	$('textarea').val("好！");
+	$('#ask').prop('checked', true);
 }
 
 var sendData = function(type) {
@@ -345,10 +346,10 @@ var sendData = function(type) {
 	alert(data);
 	$.ajax({
 		type: "POST", 
-		url: "http://r444b.ee.ntu.edu.tw/togeather/output.php", 
+		url: "http://r444b.ee.ntu.edu.tw/togeather/popo.php", 
 		data: {"student":$("#student_id").html(), "course":$("#course_num").html(), "class":$("#class_num").html(), "type":type, "homework":homework, 
 		       "teaching_rate":teaching_rate, "learning_rate":learning_rate, 
-		       "overall":opn_overall, "style":opn_style, "loading":opn_loading, "difficulty":opn_difficulty}
+		       "overall":opn_overall, "style":opn_style, "loading":opn_loading, "difficulty":opn_difficulty, "assist":$('#ask').prop('checked')}
 	}).done(function(response) {
 		console.log(response);
 	});
