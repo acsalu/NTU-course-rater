@@ -8,6 +8,17 @@ var Set = function() {}
 Set.prototype.add = function(o) { this[o] = true; }
 Set.prototype.remove = function(o) { delete this[o]; }
 
+
+overall = [1, 0, 0]
+
+opn_dict = {
+	"overall": ["好", "有趣", "紮實", "操", "崩潰"],
+	"style": ["大師風範", "幽默風趣", "深入淺出", "聽不太懂", "有點沈悶"],
+	"loading": ["非常輕鬆", "有點輕鬆", "負擔適中", "有點重", "非常重"],
+	"difficulty": ["非常簡單", "有點簡單", "難度適中", "有點難", "非常難"]
+}
+
+
 opn_overall = [false, false, false, false, false];
 opn_style = [false, false, false, false, false];
 opn_loading = null;
@@ -176,6 +187,7 @@ var bindOpinion = function() {
 		$(this).click(function() {
 			opn_overall[i] = !opn_overall[i];
 			$(this).toggleClass('overall').toggleClass('overall_pressed');
+			genOpinion();
 		});
 	});
 	
@@ -183,7 +195,9 @@ var bindOpinion = function() {
 		$(this).click(function() {
 			opn_style[i] = !opn_style[i];
 			$(this).toggleClass('style').toggleClass('style_pressed');
+			genOpinion();
 		});
+
 	});
 	
 	$('#opinion').find("[class^=loading]").each(function(i) {
@@ -194,7 +208,11 @@ var bindOpinion = function() {
 				$('#opinion').find("[class^=loading]").each(function(j) {
 					if (j == origin - 1 || j == opn_loading - 1) $(this).toggleClass('loading').toggleClass('loading_pressed');
 				});
+			} else {
+				$(this).toggleClass('loading').toggleClass('loading_pressed')
+				opn_loading = null;
 			}
+			genOpinion();
 		});
 	});
 	
@@ -206,11 +224,81 @@ var bindOpinion = function() {
 				$('#opinion').find("[class^=difficulty]").each(function(j) {
 					if (j == origin - 1 || j == opn_difficulty - 1) $(this).toggleClass('difficulty').toggleClass('difficulty_pressed');
 				});
+			} else {
+				$(this).toggleClass('difficulty').toggleClass('difficulty_pressed')
+				opn_difficulty = null;
 			}
+			genOpinion();
 		});
 	});
+	
 }
 
+var hasOpinion = function() {
+	for (var i = 0; i < opn_overall.length; ++i) {
+		if (opn_overall[i]) return true;
+	}
+	for (var i = 0; i < opn_style.length; ++i) {
+		if (opn_style[i]) return true;
+	}
+	if (opn_loading != null || opn_difficulty != null) return true;
+	return false;
+	
+}
 
+var genOpinion = function() {
+	if (!hasOpinion()) {
+		$('#result').html("請輸入ㄎㄎ");
+		return;
+	}
 
+	var overall = "";
+	for (var i = 0; i < opn_overall.length; ++i) {
+		if (opn_overall[i]) {
+			if (overall != "") overall += "、";
+			overall +=  "很" + opn_dict["overall"][i];
+		}
+	}
+	
+	var style = "";
+	for (var i = 0; i < opn_style.length; ++i) {
+		if (opn_style[i]) {
+			if (style != "") style += "、";
+			style += opn_dict["style"][i];
+		}
+	}
+	
+	var load_and_diff = ""
+	if ((opn_loading || opn_difficulty) && !(opn_loading && opn_difficulty)) {
+		if (opn_loading) load_and_diff += opn_dict["loading"][opn_loading - 1];
+		else load_and_diff += opn_dict["difficulty"][opn_difficulty - 1];
+	} else if (opn_loading && opn_difficulty) {
+		load_and_diff += opn_dict["loading"][opn_loading - 1];
+		if ((opn_loading <= 3 && opn_difficulty <= 3) || (opn_loading > 3 && opn_difficulty > 3)) load_and_diff += "而且";
+		else load_and_diff += "但是";
+		load_and_diff += opn_dict["difficulty"][opn_difficulty - 1];
+	}
 
+	
+	var hasOverall = (overall != "");
+	var hasStyle = (style != "");
+	var hasLoadAndDiff = (load_and_diff != "");
+	
+
+	var opinion = "";
+	
+	if (hasOverall) opinion += "我覺得這門課" + overall;
+	
+	if (hasOverall && hasStyle) opinion += "，";
+	if (hasStyle) opinion += "老師上課" + style;
+	if ((hasOverall && hasLoadAndDiff) || (hasStyle && hasLoadAndDiff)) opinion += "，";
+	if (hasLoadAndDiff) opinion += load_and_diff;
+	opinion += "。";
+		
+	$('#result').html(opinion);
+	$('textarea[name="opinion1"]').val(opinion);
+}
+
+var setDefaultValues = function() {
+	
+}

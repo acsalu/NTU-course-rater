@@ -23,8 +23,9 @@ $.ajax({
 			bindHomework();
 			bindRate(type);
 			bindOpinion();
+			genOpinion();
+			setDefaultValeus();
 		}
-		
 		
 		$('#expand_collapse').click(function() {
 			$('#ctrl').slideToggle('slow', function() {
