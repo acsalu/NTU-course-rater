@@ -24,17 +24,32 @@ $.ajax({
 			bindRate(type);
 			bindOpinion();
 			genOpinion();
-			setDefaultValeus();
 		}
 		
-		$('#expand_collapse').click(function() {
-			$('#ctrl').slideToggle('slow', function() {
+	/*
+	$('#expand_collapse').click(function() {
+			if ($('#expand_collapse').html()  == "⋀") {
+				$('#ctrl').stop().children().fadeOut(300, function() {
+					console.log('me');
+					$('#expand_collapse').html("⋁");
+					$('#expand_collapse').show();
+					$('#expand_collapse').stop().animate){("⋁");
+					$('#ctrl').stop().animate({height: '50px'}, 500);
+					
+				});
+			} else {
 				
-			});
+			}
+
 		});
-		
+ 		 */
 		// set default values (ensure that user can submit immediately, though not recommanded)
+		setDefaultValues();
 		
+		$('#my_submit').click(function() {
+			sendData();
+			$('input[name="send"]').click();
+		});
 	} else {
 		$('#ctrl').hide();
 		console.log("hide panel");
@@ -50,14 +65,7 @@ $.ajax({
 $('#ctrl_div').append("<div><button id='my_submit'>submit</button></div>");
 $submit_button = $('input[name="send"]');
 $submit_button.click(function() {
-	$.ajax({
-		type: "POST", 
-		url: "http://r444b.ee.ntu.edu.tw/togeather/output.php", 
-		data: {student:"B98901147", course:"901 123455", sweet:5, cool:4}
-	}).done(function(response) {
-		console.log(response);
-	});
-});
+	
 $('#my_submit').click(function() { $submit_button.click(); });
 
 // options
@@ -69,10 +77,4 @@ $.ajax({
 	//console.log(response);
 	console.log("done");
 });
-
-
-if ($('body:contains("下列為本課程所有合開老師資料，請選擇有實際授課的老師進行評鑑。")') && document.URL == "https://investea.aca.ntu.edu.tw/opinion/giveform3.asp") {
-	console.log("this is a form of type " + type);
-	//$ctrl_div.hide();
-}
 */

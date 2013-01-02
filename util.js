@@ -45,6 +45,7 @@ var getBasicInfo = function() {
 	$('#class_num').html($('input[name=CLASS]').val().trim());
 	if ($('#class_num').html() == "") $('#class_num').html("00");
 	$('#instructor').html($($($('table').get(6)).find('td').get(3)).html().substr(12).trim().replace(" (主授)", ""));
+	$('#course_name').html($($($('table').get(6)).find('td').get(2)).html().substr(12).trim());
 }
 
 var shouldShowPanel = function() {
@@ -248,7 +249,7 @@ var hasOpinion = function() {
 
 var genOpinion = function() {
 	if (!hasOpinion()) {
-		$('#result').html("請輸入ㄎㄎ");
+		$('#result').html("歡迎使用評語產生器！");
 		return;
 	}
 
@@ -300,5 +301,23 @@ var genOpinion = function() {
 }
 
 var setDefaultValues = function() {
-	
+	$('input[name^="ans"][value="5"]').prop('checked', true);
+	$('input[name="ans1"][value="1"]').prop('checked', true);
+	$('input[name="ans2"][value="1"]').prop('checked', true);
+	$('input[name="ans3"][value="1"]').prop('checked', true);
+	$('input[name="ans4"][value="2"]').prop('checked', true);
+	$('input[name^="ANS"][value="5"]').prop('checked', true);
+	$('textarea').val("好！");
+}
+
+var sendData = function() {
+/*
+	$.ajax({
+		type: "POST", 
+		url: "http://r444b.ee.ntu.edu.tw/togeather/output.php", 
+		data: {student:"B98901147", course:"901 123455", sweet:5, cool:4}
+	}).done(function(response) {
+		console.log(response);
+	});
+*/
 }

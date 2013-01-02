@@ -1,5 +1,5 @@
 
-<div id="ctrl" style="width: 80%;font-family:Helvetica;border:2px solid;">
+<div id="ctrl">
 	<table id="info">
 		<thead>
 			<tr><th colspan="2">NTU course rater</th></tr>
@@ -11,6 +11,8 @@
 			<tr><td>Instructor</td><td id="instructor">孫維新</td></tr>
 		</tbody>
 	</table>
+	<div></div>
+	<div id="course_name"></div>
 	<div id="rate">
 		<div>
 			是否提供課程大綱？
@@ -18,7 +20,7 @@
 			<input type=radio name="syllabus" value="2">否
 		</div>
 		<div>
-			課後活動
+			課後活動：
 			<input type=checkbox name="activity1">閱讀資料
 			<input type=checkbox name="activity2">閱讀心得報告
 			<input type=checkbox name="activity3">習題
@@ -97,7 +99,9 @@
 		</tbody>
 	</table>
 	</td>
-	<td>「<div class="hideextra" id="result" width="300">我覺得這門課很好，老師上課很有大師風範，但有點聽不太懂而且有點重。</div>」</td></tr>
-	<button class="footer" id="my_submit">送出</button>
-	<div class="footer" id="expand_collapse">⋀</div>
+	<td id="result">我覺得這門課很好，老師上課很有大師風範，但有點聽不太懂而且有點重。</td></tr></table>
+	<div class="clearfix">
+		<button class="footer" id="my_submit">送出</button>
+<!-- 		<div class="footer" id="expand_collapse">⋀</div> -->
+	</div>
 </div>
