@@ -310,14 +310,47 @@ var setDefaultValues = function() {
 	$('textarea').val("好！");
 }
 
-var sendData = function() {
-/*
+var sendData = function(type) {
+	var homework = new Array();
+	for (var i = 0; i < 9; ++i) {
+		if ($($('[name="homework"]').get(i)).prop("checked")) homework.push(i + 1);
+	}
+	
+	var teaching_rate = new Array();
+	if (type == "SINGLE") {
+		var rate = new Array();
+		for (var i = 6; i < 6 + 11; ++i) {
+			rate.push($('[name="ans' + i + '"]:checked').val());
+		}
+		teaching_rate.push({"teacher":$('.teacher_name').html(), "rate":rate});
+	} else {
+		var teachers = getTeacher();
+		for (var i = 0; i < teachers.length; ++i) {
+			var rate = new Array();
+			for (var j = 12; j < 12 + 6; ++j) {
+				rate.push($('[name="ANS' + j + 'm' + (i + 1) + '"]:checked').val());
+			}
+			teaching_rate.push({"teacher":teachers[i], "rate": rate, opinion:$('[name="OPINION1m' + (i + 1) + '"]').val()});
+		}
+	}
+	
+	var learning_rate = new Array();
+	for (var i = 24; i < 24 + 5; ++i) {
+		learning_rate.push($('[name="ans' + i + '"]:checked').val());
+	}
+	
+	data = {"student":$("#student_id").html(), "course":$("#course_num").html(), "type":type, "homework":homework, 
+		       "teaching_rate":teaching_rate, "learning_rate":learning_rate, 
+		       "overall":opn_overall, "style":opn_style, "loading":opn_loading, "difficulty":opn_difficulty};
+	alert(data);
 	$.ajax({
 		type: "POST", 
 		url: "http://r444b.ee.ntu.edu.tw/togeather/output.php", 
-		data: {student:"B98901147", course:"901 123455", sweet:5, cool:4}
+		data: {"student":$("#student_id").html(), "course":$("#course_num").html(), "class":$("#class_num").html(), "type":type, "homework":homework, 
+		       "teaching_rate":teaching_rate, "learning_rate":learning_rate, 
+		       "overall":opn_overall, "style":opn_style, "loading":opn_loading, "difficulty":opn_difficulty}
 	}).done(function(response) {
 		console.log(response);
 	});
-*/
+
 }

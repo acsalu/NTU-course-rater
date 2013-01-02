@@ -1,9 +1,3 @@
-/*
-chrome.extension.sendRequest({cmd: "read_file"}, function(html){
-    $('body').prepend(html);
-});
-*/
-
 $.ajax({
 	type:"GET",
 	url:chrome.extension.getURL("template.html")
@@ -47,8 +41,8 @@ $.ajax({
 		setDefaultValues();
 		
 		$('#my_submit').click(function() {
-			sendData();
-			$('input[name="send"]').click();
+			sendData(type);
+			//$('input[name="send"]').click();
 		});
 	} else {
 		$('#ctrl').hide();
@@ -56,25 +50,3 @@ $.ajax({
 	}
 	
 });
-
-
-
-/*
-
-// submit
-$('#ctrl_div').append("<div><button id='my_submit'>submit</button></div>");
-$submit_button = $('input[name="send"]');
-$submit_button.click(function() {
-	
-$('#my_submit').click(function() { $submit_button.click(); });
-
-// options
-
-$.ajax({
-	type:"GET",
-	url:"http://r444b.ee.ntu.edu.tw/togeather/options.json"
-}).done(function(response) {
-	//console.log(response);
-	console.log("done");
-});
-*/

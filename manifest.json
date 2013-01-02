@@ -18,6 +18,6 @@
   	"template.html"
   ],
   "permissions": [
-    "tabs", "background", "http://ajax.googleapis.com/", "http://r444b.ee.ntu.edu.tw/*"
+    "tabs", "http://ajax.googleapis.com/", "http://r444b.ee.ntu.edu.tw/*"
   ]
 }
