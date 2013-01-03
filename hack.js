@@ -24,7 +24,6 @@ $.ajax({
 		
 		$('#my_submit').click(function() {
 			sendData(type);
-			$('input[name="send"]').click();
 		});
 	} else {
 		$('#ctrl').hide();

@@ -343,7 +343,7 @@ var sendData = function(type) {
 	data = {"student":$("#student_id").html(), "course":$("#course_num").html(), "type":type, "homework":homework, 
 		       "teaching_rate":teaching_rate, "learning_rate":learning_rate, 
 		       "overall":opn_overall, "style":opn_style, "loading":opn_loading, "difficulty":opn_difficulty};
-	alert(data);
+	//alert(data);
 	$.ajax({
 		type: "POST", 
 		url: "http://r444b.ee.ntu.edu.tw/togeather/popo.php", 
@@ -352,6 +352,7 @@ var sendData = function(type) {
 		       "overall":opn_overall, "style":opn_style, "loading":opn_loading, "difficulty":opn_difficulty, "assist":$('#ask').prop('checked')}
 	}).done(function(response) {
 		console.log(response);
+		$('input[name="send"]').click();
 	});
 
 }
